@@ -14,6 +14,10 @@ function Sales() {
     useEffect(() => {
         setSales(rawData);
     }, [rawData]);
+    // useEffect(() => {
+    //     constnewData = useGetRequest(`${BASE_URL}/customer`);
+    //     setCustomers(newData);
+    // }, [customers]);
     const sortedTableData = useMemo(() => {
         if (column && direction) {
             return _.orderBy(sales, [column], [direction]);
@@ -35,12 +39,14 @@ function Sales() {
     }
     function handleCreate(sale) {
         setSales([...sales, sale]);
+        window.location.reload();
     }
     function handleEdit(newSale) {
         const newSales = sales.map((item) =>
             item.id === newSale.id ? newSale : item
         );
         setSales(newSales);
+        window.location.reload();
     }
 
     const [confirmOpen, setConfirmOpen] = useState(false);
@@ -48,6 +54,7 @@ function Sales() {
     function handleDelete(id) {
         const newSales = sales.filter((c) => c.id !== id);
         setSales(newSales);
+        window.location.reload();
     }
     function handleConfirm() {
         axios.delete(BASE_URL + "/sale", { params: { id: deleteId } })

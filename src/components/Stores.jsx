@@ -37,12 +37,14 @@ function Stores() {
 
     function handleCreate(store) {
         setStores([...stores, store]);
+        window.location.reload();
     }
     function handleEdit(newStore) {
         const newStores = stores.map((c) =>
             c.id === newStore.id ? newStore : c
         );
         setStores(newStores);
+        window.location.reload();
     }
 
     const [confirmOpen, setConfirmOpen] = useState(false);
@@ -50,6 +52,7 @@ function Stores() {
     function handleDelete(id) {
         const newStores = stores.filter((c) => c.id !== id);
         setStores(newStores);
+        window.location.reload();
     }
     function handleConfirm() {
         axios.delete(BASE_URL + "/store", { params: { id: deleteId } })

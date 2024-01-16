@@ -29,6 +29,7 @@ function EditCustomer({ onEdit, customer }) {
         );
         if (response.status === 200) {
             // pass the new Customer data to onEdit - handleEdit in parent component
+            console.log("in handleSubmit: response.data: ", response.data)
             onEdit(response.data);
             // close the modal
             setOpen(false);

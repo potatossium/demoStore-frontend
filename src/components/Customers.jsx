@@ -37,17 +37,20 @@ function Customers() {
 
     function handleCreate(customer) {
         setCustomers([...customers, customer]);
+        window.location.reload();
     }
     function handleEdit(newCustomer) {
         setCustomers(customers.map((c) =>
             c.id === newCustomer.id ? newCustomer : c
         ));
+        window.location.reload();
     }
 
     const [confirmOpen, setConfirmOpen] = useState(false);
     const [deleteId, setDeleteId] = useState(null);
     function handleDelete(id) {
         setCustomers(customers.filter((c) => c.id !== id));
+        window.location.reload();
     }
     function handleConfirm() {
         axios.delete(BASE_URL + "/customer", { params: { id: deleteId } })

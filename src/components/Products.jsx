@@ -36,12 +36,14 @@ function Products() {
 
     function handleCreate(product) {
         setProducts([...products, product]);
+        window.location.reload();
     }
     function handleEdit(newProduct) {
         const newProducts = products.map((c) =>
             c.id === newProduct.id ? newProduct : c
         );
         setProducts(newProducts);
+        window.location.reload();
     }
 
     const [confirmOpen, setConfirmOpen] = useState(false);
@@ -49,6 +51,7 @@ function Products() {
     function handleDelete(id) {
         const newProducts = products.filter((c) => c.id !== id);
         setProducts(newProducts);
+        window.location.reload();
     }
     function handleConfirm() {
         axios.delete(BASE_URL + "/product", { params: { id: deleteId } })

@@ -1,5 +1,8 @@
 # React Project Name
-DemoStore-Frontend-React version 1.0.0
+DemoStore-Frontend-React version 1.1.0
+
+- bugs resolved: raw data are not reloaded after creating new object for the table.
+
 ## Project Introduction
 
 This is the frontend part of a full-stack demo store project developed using React framework, with the following features and functionalities:
